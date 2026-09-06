@@ -15,17 +15,12 @@ class Solution:
         # Return: (dL_dw rounded to 5 decimals, dL_db rounded to 5 decimals)
         z=np.dot(x,w)+b
         y_hat=1/(1+np.exp(-z)) #activation
-
-        loss=0.5 * np.square(y_hat-y_true)
-
+        
         error=y_hat-y_true
         derivative=y_hat*(1-y_hat) #derivative(y_hat)
-
-        
         delta=error*derivative
 
         dL_dw=delta*x
-        
         dL_db=delta
 
         return(np.round(dL_dw,5), np.round(float(dL_db),5))
